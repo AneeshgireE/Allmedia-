@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Device Recognition</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      background-size: cover;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+      color: #fff;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      max-width: 600px;
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .button:active {
+      transform: scale(1);
+      box-shadow: none;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .messenger {
+      background-color: #0084ff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .tiktok {
+      background-color: #000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .twitter {
+      background-color: #1da1f2;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .whatsapp {
+      background-color: #25d366;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-style: italic;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #2575fc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome To Another World.</h1>
+  <p>We are securing your device. Enjoy Your Time</p>
+  <div class="button-container">
+    <!-- Messenger link -->
+    <a href="https://www.messenger.com" target="_blank" class="button messenger">Messenger</a>
+    
+    <!-- TikTok link -->
+    <a href="https://www.tiktok.com" target="_blank" class="button tiktok">TikTok</a>
+    
+    <!-- Instagram link -->
+    <a href="https://www.instagram.com" target="_blank" class="button instagram">Instagram</a>
+    
+    <!-- Twitter link -->
+    <a href="https://www.twitter.com" target="_blank" class="button twitter">Twitter</a>
+    
+    <!-- WhatsApp link -->
+    <a href="https://www.whatsapp.com" target="_blank" class="button whatsapp">WhatsApp</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 <a href="#">Welcome to Media Hub</a>. All rights reserved. Aniesh</p>
+  </footer>
+
+  <script>
+    const isDeviceRecognized = localStorage.getItem(`deviceRecognized_${userId}`);
+
+    if (!isDeviceRecognized) {
+      const password = prompt("This device is not recognized. Please enter your password:");
+      if (password !== "your-secure-password") {
+        alert("Incorrect password. Access denied.");
+        window.location.href = "about:blank"; // Block further access
+      } else {
+        localStorage.setItem(`deviceRecognized_${userId}`, 'true');
+        alert("Device recognized. Welcome!");
+      }
+    } else {
+      alert("Welcome back! Device recognized.");
+    }
+  </script>
+
+</body>
+</html>
